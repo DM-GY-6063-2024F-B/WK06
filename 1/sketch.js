@@ -1,11 +1,20 @@
+// TODO: add more properties using objects
+
+let ypos;
+
 function setup() {
   createCanvas(windowWidth, windowHeight);
+  noStroke();
+
+  ypos = -50;
 }
 
 function draw() {
-  background(255);
-  fill(0);
-  rect(width / 2 - width / 40, height / 4 - width / 20, width / 20, height / 2 + width / 10);
-  rect(width / 2.5, height / 4 + height / 2, width - 2 * width / 2.5, width / 20);
-  rect(width / 2 - width / 20 - width / 40, height / 4 - width / 20, width / 20, width / 20);
+  background(220, 20, 220);
+  ellipse(width / 2, ypos, 50);
+  ypos += 10;
+
+  if (ypos > height) {
+    ypos = -50;
+  }
 }
