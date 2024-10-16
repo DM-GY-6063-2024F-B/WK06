@@ -1,18 +1,27 @@
-// TODO: add more properties using objects
-// TODO: create/draw using functions
+let aList = [];
 
-let NUM_OBJS = 10;
-let xs = [];
-let ys = [];
+let aCircle = {};
 
 function setup() {
   createCanvas(windowWidth, windowHeight);
-  for (let i = 0; i < NUM_OBJS; i++) {
-    xs.push(random(width));
-    ys.push(random(-50, -20));
-  }
+  noStroke();
+
+  aList = [0, 3, 4, 6];
+
+  aCircle = {
+    x: width / 2,
+    y: height / 2,
+    d: 60,
+    a: 255,
+  };
 }
 
 function draw() {
-  background(220, 20, 220);  
+  background(220, 20, 220);
+
+  fill(255, aCircle["a"]); // same as aCircle.a
+  ellipse(aCircle.x, aCircle.y, aCircle.d);
+
+  // wrap around after 255
+  aCircle.a = (aCircle.a + 4) % 255;
 }
